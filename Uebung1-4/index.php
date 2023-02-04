@@ -8,7 +8,7 @@
         echo "Du bist {$age} Jahre alt.";
     }
 
-    // Lösung: http://m151.test/Uebung1-4/index.php?username=raj&age=4
+    // Lösung: http://m151.test/Uebung1-4/index.php?username=Username&age=15
 ?>
 
 
