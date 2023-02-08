@@ -13,36 +13,38 @@ try {
   echo "Connection failed: " . $e->getMessage();
 }
 
+$order = $_GET['id'];
+echo '<h2>Ihre Bestellung</h2>';
+$statement = $conn->prepare("SELECT * from orders where orders.customer_id = :id ");
+$statement->execute([':id' => $order]);
 
-$jobTitle = $_GET['job_title'];
-echo '<h2>Kunden</h2>';
-$sql = "SELECT * FROM customers where job_title = :job_title";
-$statement = $conn->prepare($sql);
-$statement->execute([':job_title' => $jobTitle]);
+
+
 ?>
 
 <table>
     <tr>
-        <th>Vorname</th>
-        <th>Nachname</th>
-        <th>Jobtitel</th>
+        <th>Bestelldatum</th>
+        <th>Ship</th>
+        <th>Payment type</th>
+        <th>Paid date</th> 
     </tr>
 
     <?php  while ($row = $statement->fetch()){
-
+        
         echo " 
         <tr>
-            <th>{$row['first_name']}</th>
-            <th>{$row['last_name']}</th>
-            <th>{$row['job_title']}</th>
+            <th>{$row['order_date']}</th>
+            <th>{$row['ship_name']}</th>
+            <th>{$row['payment_type']}</th>
+            <th>{$row['paid_date']}</th>
+            <th><a href='delete.php?id={$row['id']}'>Bestellung löschen</a></th>
         </tr>
         ";
   
-       
     }
     
     ?>
     
 
 </table>
-
