@@ -8,12 +8,15 @@
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') 
     {
-       
        $ingredient = $_POST['ingredient'];
-       array_push($ingredients, $ingredient);
-       $_SESSION['ingredients'] = $ingredients;
-       
+
+       if($ingredient != ''){
+        array_push($ingredients, $ingredient);
+       }
+     
     }
+
+    $_SESSION['ingredients'] = $ingredients;
 
 ?>
 
