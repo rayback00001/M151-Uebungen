@@ -8,7 +8,7 @@ try {
   $conn = new PDO("mysql:host=$servername; dbname=$database", $username, $password); // Er definiert, dass der Datenbanktyp mysql ist
 
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // Attribute
-  echo "Connected successfully";
+  //echo "Connected successfully";
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
@@ -60,8 +60,17 @@ $statement->execute([':id' => $order]);
    font-family: 'Poppins', sans-serif;
    margin: 0;
  }
+
+ body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 25px;
+ }
  table, th, td {
    border:1px solid black;
+
  }
  table {
    border-collapse: collapse;
@@ -73,7 +82,7 @@ $statement->execute([':id' => $order]);
  table thead tr {
    background-color: #1E90FF;
    color: #ffffff;
-   text-align: left;
+   text-align: center;
  }
  table th,
  table td {
