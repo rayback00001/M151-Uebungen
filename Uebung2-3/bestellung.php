@@ -19,6 +19,10 @@ $statement = $conn->prepare("SELECT * from orders where orders.customer_id = :id
 $statement->execute([':id' => $order]);
 
 
+function e($string) {
+  return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
+}
+
 ?>
 
 <table>
@@ -38,7 +42,7 @@ $statement->execute([':id' => $order]);
         echo " 
 
         <tr>
-            <th>{$row['order_date']}</th>
+            <th>{$row['order_date']}</th>   
             <th>{$row['ship_name']}</th>
             <th>{$row['payment_type']}</th>
             <th>{$row['paid_date']}</th>
