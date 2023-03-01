@@ -27,24 +27,11 @@ function e($string) {
 <table>
   <thead>
     <tr>
-        <th>Id</th>
-        <th>Firma</th>
-        <th>Nachname</th>
         <th>Vorname</th>
-        <th>Email</th>
-        <th>Job</th>
-        <th>Business Phone</th>
-        <th>Home Phone</th>
-        <th>Mobile Phone</th>
-        <th>Fax-Nummer</th>
+        <th>Nachname</th>
+        <th>Jobtitel</th>
         <th>Adresse</th>
         <th>Stadt</th>
-        <th>Staat</th>
-        <th>PLZ</th>
-        <th>Region</th>
-        <th>Web Page</th>
-        <th>Notes</th>
-        <th>Anhänge</th>
     </tr>
   </thead>
 
@@ -54,32 +41,21 @@ function e($string) {
 
         echo " 
         <tr>
-            <th>{$row['id']}</th>
-            <th>{$row['company']}</th>
-            <th>{$row['last_name']}</th>
             <th>{$row['first_name']}</th>
-            <th>{$row['email_address']}</th>
+            <th>{$row['last_name']}</th>
             <th>{$row['job_title']}</th>
-            <th>{$row['business_phone']}</th>
-            <th>{$row['home_phone']}</th>
-            <th>{$row['mobile_phone']}</th>
-            <th>{$row['fax_number']}</th>
             <th>{$row['address']}</th>
             <th>{$row['city']}</th>
-            <th>{$row['state_province']}</th>
-            <th>{$row['zip_postal_code']}</th>
-            <th>{$row['country_region']}</th>
-            <th>{$row['web_page']}</th>
-            <th>{$row['notes']}</th>
-            <th>{$row['attachments']}</th>
-            
+            <th><a href='edit.php?id={$row['id']}'>Bearbeiten</a></th>
         </tr>
         ";
    
     }
     
     ?>
+    
 
+</table>
 
 <style>
  *{
@@ -90,6 +66,8 @@ function e($string) {
 
  body{
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   margin-top: 25px;
  }
@@ -102,7 +80,6 @@ function e($string) {
    font-size: 0.9em;
    font-family: sans-serif;
    min-width: 400px;
-   justify-content: center;
  }
  table thead tr {
    background-color: #1E90FF;
