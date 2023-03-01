@@ -20,11 +20,12 @@ if(isset($_GET['id']) && $_GET['id'] !== ''){
     $sql = "SELECT * FROM customers WHERE id = :id";
     $statement = $conn->prepare($sql);
 
-    $statement->execute(([
+    $statement->execute([
             ':id' => $_GET['id']
-    ]));
+    ]);
 
     $preset = $statement ->fetch();
+}
 
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
          if($preset){
@@ -39,7 +40,7 @@ if(isset($_GET['id']) && $_GET['id'] !== ''){
                 $statement->execute([
                     ':company' => $_POST['company'],
                     ':last_name' => $_POST['last_name'],
-                    ':fist_name' => $_POST['fist_name'],
+                    ':first_name' => $_POST['first_name'],
                     ':email_address' => $_POST['email_address'],
 
 
@@ -52,19 +53,19 @@ if(isset($_GET['id']) && $_GET['id'] !== ''){
                 $statement->execute([
                     ':id' => $_GET['id']
                 ]);
+
                 $preset = $statement->fetch();
-         }
-         else{
+         }else{
             header('Location: index.php');
             die();
-         }
+        }
     }
-}
+
 
 ?>
 
 
-<form action="edit.php?id=<? $preset ? $preset ['id'] : ''?>" method="POST">
+<form action="edit.php?id=<?= $preset ? $preset['id'] : '' ?>" method="POST">
         <div>
             <input type="text" name="company" placeholder="Firma" value="<?=$preset ? $preset['company'] : '' ?>">
         </div>
@@ -72,7 +73,7 @@ if(isset($_GET['id']) && $_GET['id'] !== ''){
             <input type="text" name="last_name" placeholder="Nachname" value="<?=$preset ? $preset['last_name'] : '' ?>">
         </div>
         <div>
-            <input type="text" name="fist_name" placeholder="Vorname" value="<?=$preset ? $preset['first_name'] : '' ?>">
+            <input type="text" name="first_name" placeholder="Vorname" value="<?=$preset ? $preset['first_name'] : '' ?>">
         </div>
         <div>
             <input type="email" name="email_address" placeholder="Email" value="<?=$preset ? $preset['email_address'] : '' ?>">
