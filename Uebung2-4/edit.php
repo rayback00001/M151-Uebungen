@@ -64,7 +64,7 @@ if(isset($_GET['id']) && $_GET['id'] !== ''){
 ?>
 
 
-<form action="" method="POST">
+<form action="edit.php?id=<? $preset ? $preset ['id'] : ''?>" method="POST">
         <div>
             <input type="text" name="company" placeholder="Firma" value="<?=$preset ? $preset['company'] : '' ?>">
         </div>
