@@ -18,9 +18,7 @@ echo '<h2>Kunden</h2>';
 $statement = $conn->prepare("SELECT * FROM customers");
 $statement->execute();
 
-function e($string) {
-  return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
-}
+
 
 ?>
 
